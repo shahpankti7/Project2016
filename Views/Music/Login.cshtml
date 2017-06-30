@@ -1,0 +1,72 @@
+﻿@model Project2016.Models.UserModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<script type="text/javascript">
+
+    function submitfrom() {
+
+        $("#Uerrormsg").html("");
+        $("#Perrormsg").html("");
+
+        var username = $("#txtUsername").val();
+        var password = $("#txtPassword").val();
+
+        if (username == "") {
+            $("#Uerrormsg").html("Please enter username");
+        }
+        if (password == "") {
+            $("#Perrormsg").html("Please enter password");
+        }
+        //if (username != "" && password != "") {
+            $("#loginfrm").submit();
+        //}        
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Music", FormMethod.Post, new { @id= "loginfrm", @class = "form-horizontal", role = "form" }))
+            {
+                <h4>Please use local account to login.</h4>
+                <hr />
+                <div class = "text-danger">@ViewBag.error</div>  <br/>              
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Username, new { @id= "txtUsername", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @id = "Uerrormsg", @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @id= "txtPassword", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @id = "Perrormsg", @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="Log in" class="btn btn-default" onclick="submitfrom();" />
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink("Register as a new user", "Register")
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

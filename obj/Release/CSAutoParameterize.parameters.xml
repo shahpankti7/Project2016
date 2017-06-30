@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-Project2016-20160312123348.mdf;Initial Catalog=aspnet-Project2016-20160312123348;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Pankti\ Shah\\Documents\\Visual\ Studio\ 2015\\Projects\\Project2016\\Project2016\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Project2016Entities-Web.config Connection String" description="Project2016Entities Connection String used in web.config by the application to access the database." defaultValue="metadata=&quot;res://*/Data Tier.Model1.csdl|res://*/Data Tier.Model1.ssdl|res://*/Data Tier.Model1.msl&quot;;provider=System.Data.SqlClient;provider connection string=&quot;data source=PANKTI\sqlexpress;initial catalog=Project2016;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Pankti\ Shah\\Documents\\Visual\ Studio\ 2015\\Projects\\Project2016\\Project2016\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Project2016Entities']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Project2016Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="album">
+    <Key>
+      <PropertyRef Name="artist_id" />
+      <PropertyRef Name="album_id" />
+    </Key>
+    <Property Name="artist_id" Type="int" Nullable="false" />
+    <Property Name="album_id" Type="int" Nullable="false" />
+    <Property Name="album_name" Type="char" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="artist">
+    <Key>
+      <PropertyRef Name="artist_id" />
+    </Key>
+    <Property Name="artist_id" Type="int" Nullable="false" />
+    <Property Name="artist_name" Type="char" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="played">
+    <Key>
+      <PropertyRef Name="artist_id" />
+      <PropertyRef Name="album_id" />
+      <PropertyRef Name="track_id" />
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="artist_id" Type="int" Nullable="false" />
+    <Property Name="album_id" Type="int" Nullable="false" />
+    <Property Name="track_id" Type="int" Nullable="false" />
+    <Property Name="played" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="track">
+    <Key>
+      <PropertyRef Name="track_id" />
+      <PropertyRef Name="artist_id" />
+      <PropertyRef Name="album_id" />
+    </Key>
+    <Property Name="track_id" Type="int" Nullable="false" />
+    <Property Name="track_name" Type="char" MaxLength="128" />
+    <Property Name="artist_id" Type="int" Nullable="false" />
+    <Property Name="album_id" Type="int" Nullable="false" />
+    <Property Name="time" Type="decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="isactive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__album__artist_id__1A14E395">
+    <End Role="artist" Type="Self.artist" Multiplicity="1" />
+    <End Role="album" Type="Self.album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artist">
+        <PropertyRef Name="artist_id" />
+      </Principal>
+      <Dependent Role="album">
+        <PropertyRef Name="artist_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__played__2A4B4B5E">
+    <End Role="album" Type="Self.album" Multiplicity="1" />
+    <End Role="played" Type="Self.played" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="album">
+        <PropertyRef Name="artist_id" />
+        <PropertyRef Name="album_id" />
+      </Principal>
+      <Dependent Role="played">
+        <PropertyRef Name="artist_id" />
+        <PropertyRef Name="album_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__played__2B3F6F97">
+    <End Role="track" Type="Self.track" Multiplicity="1" />
+    <End Role="played" Type="Self.played" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="track">
+        <PropertyRef Name="artist_id" />
+        <PropertyRef Name="album_id" />
+        <PropertyRef Name="track_id" />
+      </Principal>
+      <Dependent Role="played">
+        <PropertyRef Name="artist_id" />
+        <PropertyRef Name="album_id" />
+        <PropertyRef Name="track_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__played__artist_i__29572725">
+    <End Role="artist" Type="Self.artist" Multiplicity="1" />
+    <End Role="played" Type="Self.played" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artist">
+        <PropertyRef Name="artist_id" />
+      </Principal>
+      <Dependent Role="played">
+        <PropertyRef Name="artist_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__played__user_id__2F10007B">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="played" Type="Self.played" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="played">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__track__22AA2996">
+    <End Role="album" Type="Self.album" Multiplicity="1" />
+    <End Role="track" Type="Self.track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="album">
+        <PropertyRef Name="artist_id" />
+        <PropertyRef Name="album_id" />
+      </Principal>
+      <Dependent Role="track">
+        <PropertyRef Name="artist_id" />
+        <PropertyRef Name="album_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__track__artist_id__21B6055D">
+    <End Role="artist" Type="Self.artist" Multiplicity="1" />
+    <End Role="track" Type="Self.track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artist">
+        <PropertyRef Name="artist_id" />
+      </Principal>
+      <Dependent Role="track">
+        <PropertyRef Name="artist_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Project2016ModelStoreContainer">
+    <EntitySet Name="album" EntityType="Self.album" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="artist" EntityType="Self.artist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="played" EntityType="Self.played" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="track" EntityType="Self.track" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__album__artist_id__1A14E395" Association="Self.FK__album__artist_id__1A14E395">
+      <End Role="artist" EntitySet="artist" />
+      <End Role="album" EntitySet="album" />
+    </AssociationSet>
+    <AssociationSet Name="FK__played__2A4B4B5E" Association="Self.FK__played__2A4B4B5E">
+      <End Role="album" EntitySet="album" />
+      <End Role="played" EntitySet="played" />
+    </AssociationSet>
+    <AssociationSet Name="FK__played__2B3F6F97" Association="Self.FK__played__2B3F6F97">
+      <End Role="track" EntitySet="track" />
+      <End Role="played" EntitySet="played" />
+    </AssociationSet>
+    <AssociationSet Name="FK__played__artist_i__29572725" Association="Self.FK__played__artist_i__29572725">
+      <End Role="artist" EntitySet="artist" />
+      <End Role="played" EntitySet="played" />
+    </AssociationSet>
+    <AssociationSet Name="FK__played__user_id__2F10007B" Association="Self.FK__played__user_id__2F10007B">
+      <End Role="users" EntitySet="users" />
+      <End Role="played" EntitySet="played" />
+    </AssociationSet>
+    <AssociationSet Name="FK__track__22AA2996" Association="Self.FK__track__22AA2996">
+      <End Role="album" EntitySet="album" />
+      <End Role="track" EntitySet="track" />
+    </AssociationSet>
+    <AssociationSet Name="FK__track__artist_id__21B6055D" Association="Self.FK__track__artist_id__21B6055D">
+      <End Role="artist" EntitySet="artist" />
+      <End Role="track" EntitySet="track" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

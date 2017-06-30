@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/Project2016" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Pankti\ Shah\\Documents\\Visual\ Studio\ 2015\\Projects\\Project2016\\Project2016\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Pankti\ Shah\\Documents\\Visual\ Studio\ 2015\\Projects\\Project2016\\Project2016\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=PANKTI\SQLEXPRESS;Initial Catalog=Project2016;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Pankti\ Shah\\Documents\\Visual\ Studio\ 2015\\Projects\\Project2016\\Project2016\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Project2016Entities-Web.config Connection String" description="" value="metadata=&quot;res://*/Data Tier.Model1.csdl|res://*/Data Tier.Model1.ssdl|res://*/Data Tier.Model1.msl&quot;;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=PANKTI\SQLEXPRESS;Initial Catalog=Project2016;Integrated Security=True&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Pankti\ Shah\\Documents\\Visual\ Studio\ 2015\\Projects\\Project2016\\Project2016\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Project2016Entities']/@connectionString" />
+  </parameter>
+</parameters>

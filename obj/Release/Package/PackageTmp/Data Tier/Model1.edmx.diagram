@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1a8e95593a8142f0b5aa6cc1057b9441" Name="Diagram1">
+        <EntityTypeShape EntityType="Project2016Model.album" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project2016Model.artist" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project2016Model.played" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project2016Model.track" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project2016Model.user" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Project2016Model.FK__album__artist_id__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="Project2016Model.FK__played__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Project2016Model.FK__track__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="Project2016Model.FK__played__artist_i__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="Project2016Model.FK__track__artist_id__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="Project2016Model.FK__played__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="Project2016Model.FK__played__user_id__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

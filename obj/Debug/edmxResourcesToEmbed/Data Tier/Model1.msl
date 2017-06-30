@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Project2016ModelStoreContainer" CdmEntityContainer="Project2016Entities">
+    <EntitySetMapping Name="albums">
+      <EntityTypeMapping TypeName="Project2016Model.album">
+        <MappingFragment StoreEntitySet="album">
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+          <ScalarProperty Name="album_id" ColumnName="album_id" />
+          <ScalarProperty Name="album_name" ColumnName="album_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="artists">
+      <EntityTypeMapping TypeName="Project2016Model.artist">
+        <MappingFragment StoreEntitySet="artist">
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+          <ScalarProperty Name="artist_name" ColumnName="artist_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tracks">
+      <EntityTypeMapping TypeName="Project2016Model.track">
+        <MappingFragment StoreEntitySet="track">
+          <ScalarProperty Name="track_id" ColumnName="track_id" />
+          <ScalarProperty Name="track_name" ColumnName="track_name" />
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+          <ScalarProperty Name="album_id" ColumnName="album_id" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="Project2016Model.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="playeds">
+      <EntityTypeMapping TypeName="Project2016Model.played">
+        <MappingFragment StoreEntitySet="played">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="played1" ColumnName="played" />
+          <ScalarProperty Name="track_id" ColumnName="track_id" />
+          <ScalarProperty Name="album_id" ColumnName="album_id" />
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
